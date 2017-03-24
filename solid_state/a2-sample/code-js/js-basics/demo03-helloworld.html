@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <title>Javascript Basic Demos</title>
+
+    <script>
+        document.write('Hello World on document !!!');
+
+        console.log('Hello World on console...');
+
+        function printMessage() {
+            var e = document.getElementById('message');
+            e.innerHTML = 'Hello World in message area';
+        }
+    </script>
+
+</head>
+
+<body onload="printMessage();">
+    <h1>Javascript Basic Demos</h1>
+
+    <script>
+        window.document.write('Hello world again on document!!!');
+    </script>
+
+
+    <p id='message'></p>
+</body>
+
+</html>

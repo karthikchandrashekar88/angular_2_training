@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <script>
+            document.write('hello world document');
+            console.log('hello world console');
+            function print(){
+                var e = document.getElementById('hello_world');
+                e.innerHTML = 'hello_world';
+            }
+        </script>
+    </head>
+    <body onload="print()">
+        <p id='hello_world'></p>
+        <p id='hello_world_2'></p>
+    </body>
+     <script>
+        var e = document.getElementById('hello_world_2');
+        e.innerHTML = 'hello_world 2';
+    </script>
+</html>
