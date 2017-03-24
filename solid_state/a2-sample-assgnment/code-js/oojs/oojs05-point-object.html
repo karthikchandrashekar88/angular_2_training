@@ -1,0 +1,50 @@
+<h1>
+
+    Press F12 for output</h1>
+
+<script>
+    
+    var p = new Object(); //i have an object... no fields here!!!
+
+    p.x = 3; //now p has field called x
+    p.y = 4; //now p has y also
+
+    p.show=function () {
+        console.log(this.toString());
+    };
+
+    p.slope=function(){
+        return this.y/this.x;
+    };
+
+    p.distance=function(p2){
+        var dx=this.x-p2.x;
+        var dy=this.y-p2.y;
+
+        return Math.sqrt(dx*dx+dy*dy);
+    };
+
+    p.toString=function(){
+        return "Point("+this.x+","+this.y+")";
+    };
+
+
+    console.log('p='+p);
+    console.log('slope='+p.slope());
+
+
+    var origin={x:0,y:0};
+
+    var d=p.distance(origin);
+
+    console.log('distance between '+p+" and "+origin+' is '+d);
+
+    var d2=origin.distance(p);
+
+    console.log('distance between '+p+" and "+origin+' is '+d);
+    
+
+</script>
+
+
+

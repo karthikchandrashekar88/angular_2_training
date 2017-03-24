@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <title>Javascript Basic Demos</title>
+
+
+
+</head>
+
+
+<h1>Press F12 for output</h1>
+
+<script>
+
+    var g=10; //explicit global variable (window level)
+  
+    var f1 = function( ){
+        
+        console.log('in f1: g',g);
+        var f1local=1; //explicit local variable
+
+        console.log('in f1: f1local',f1local);
+        g=100;
+
+
+
+
+    };
+
+    var f2 = function( ){
+        console.log('in f2: ',g);
+       // console.log('in f2: f1local',f1local);
+        var f2local=1;
+        console.log('in f2:f2local: ',f2local);
+
+        g=1000;
+        f1local=50; //implicit global variable.
+        f2local=60;
+    };
+
+
+    var f3 = function( ){
+        console.log('f3: g',g);
+        console.log('f3:f1local',f1local);
+        //console.log('f3:f2local',f2local);
+    }
+
+
+
+    f1();
+
+    f2();
+
+    f3();
+
+
+
+
+</script>

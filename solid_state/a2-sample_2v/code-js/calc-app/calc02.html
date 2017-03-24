@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+
+    <style>
+        fieldset {
+            width: 60%;
+            margin: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <fieldset>
+        <legend>Toolbar</legend>
+        <div>
+            Number
+            <input type='text' id='number' />
+            <input type='button' value='Add To List' onclick='addToList();' />
+            <input type='button' value='Clear Display' onclick='clearDisplay();' />
+            <input type='button' value='Reset Calculator' onclick='reset();' />
+
+            <br/>
+            <input type='button' value='Sum' onclick='sum();' />
+            <input type='button' value='Average' onclick='avg()' />
+            <input type='button' value='Find Min' onclick='findMin();' />
+
+        </div>
+
+    </fieldset>
+
+    <hr/>
+
+    <fieldset>
+        <legend>Console</legend>
+
+        <div id='console'>
+
+        </div>
+
+    </fieldset>
+
+    <fieldset>
+        <legend>Number List</legend>
+
+        <ul id='numberList'>
+
+        </ul>
+
+        <input type='button' value='refresh list' onclick='refresh();' />
+    </fieldset>
+
+    <script>
+        var numbers = [];
+        var consoleWriter = document.getElementById('console');
+        var numberBox = document.getElementById('number');
+        var numberList = document.getElementById('numberList');
+        
+         var Calculator = function(){
+
+            this.sum = function(){
+                var result = 0;
+                for (var i = 0; i < numbers.length; i++) {
+                    result += numbers[i];
+                }
+                return result;
+            };
+
+            this.avg = function(){
+                return this.sum()/numbers.length;
+            }
+
+            this.min = function(){
+              var result=numbers[0];
+              for(var i=1;i<numbers.length;i++){
+                if(numbers[i]<result)
+                  result=numbers[i];
+              }
+              return result;
+            }
+            
+        };
+
+        var ConsoleWriter = function(){
+
+            this.addToConsole = function(msg){
+                consoleWriter.innerHTML += ("<p>" + msg + "</p>");
+            }
+        }
+
+        var cal = new Calculator(numbers);
+        var consoleObj = new ConsoleWriter();
+        var addToList = function () {
+        
+            var value = numberBox.value;
+
+            var number = parseFloat(value);
+
+            if (isNaN(number)) {
+               consoleObj.addToConsole("invalid value");
+            } else {
+
+                numberList.innerHTML += ("<li>" + number + "</li>");
+                numbers.push(number);
+            }
+
+        };
+
+        var sum = function () {
+            consoleObj.addToConsole('sum is :'+ cal.sum());
+        };
+
+        var avg=function(){
+            consoleObj.addToConsole('avg is :'+cal.avg());
+        };
+
+        var findMin=function(){
+             consoleObj.addToConsole('min is :'+cal.min());
+        };
+
+        var clear = function( ){
+            numberBox.value='';
+            consoleWriter.innerHTML='';
+            numberList.innerHTML='';   
+        }
+
+        var clearDisplay=clear;
+
+        var reset = function( ){
+            numbers=[];
+            clear();
+        }
+
+        var refresh = function( ){
+            numberList.innerHTML='';
+            for(var i=0;i<numbers.length;i++){
+                numberList.innerHTML+="<li>"+numbers[i]+"</li>";
+            }
+    
+        }
+
+
+    </script>
+</body>
+
+</html>

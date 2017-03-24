@@ -1,0 +1,56 @@
+<h1>
+
+    Press F12 for output</h1>
+
+<script>
+    'use strict';
+
+    var p = new Object(); //i have an object... no fields here!!!
+
+    p.x = 3; //now p has field called x
+    p.y = 4; //now p has y also
+
+
+    console.log(p);
+
+    function displayPoint(p) {
+        console.log('Point(' + p.x + "," + p.y + ")");
+    };
+
+    displayPoint(p);
+
+    var p2 = {}; //same as p2=new Object();
+    p2.x = 5;
+    p2.y = 8;
+
+    displayPoint(p2);
+
+
+
+    //Javascript Object Notation (JSON)
+    var p3 = {
+        x: 10,
+        y: 20
+    };
+
+    displayPoint(p3);
+
+
+    var p4=new Object();
+
+    p4['x']=100; //same and interchangably usable with p4.x
+    p4['y']=100; // same and interchangabley useable with p4.y
+    
+
+    displayPoint(p4);
+
+
+
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <title>Javascript Basic Demos</title>
+
+
+
+</head>
+
+
+<h1>Press F12 for output</h1>
+
+<script>
+
+    //traditional function syntax
+   function f1(){
+       console.log('f1 called...');
+   }
+
+
+   f1();
+
+
+   var f2=f1;
+   
+   f2();
+
+
+   var f3=function f4(){
+    console.log('f3 called...');
+    
+   };
+
+   f3();
+
+   //f4(); //--->f4 name is hidden as this is assigned to f1 during defintion
+
+   // unnamed function assigned to f1
+   //now f1 is the only name for this function
+   //this is function object syntax
+    var f5=function (){
+    console.log('f5 called...');
+    
+   };
+
+   f5();
+
+
+
+
+
+
+   
+
+
+
+ 
+
+
+
+
+
+</script>

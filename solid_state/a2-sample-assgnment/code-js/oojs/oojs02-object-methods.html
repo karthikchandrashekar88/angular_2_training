@@ -1,0 +1,38 @@
+<h1>
+
+    Press F12 for output</h1>
+
+<script>
+    'use strict';
+
+    var p = new Object(); //i have an object... no fields here!!!
+
+    p.x = 3; //now p has field called x
+    p.y = 4; //now p has y also
+
+
+    console.log(p);
+
+    function displayPoint(pt) {
+        console.log('Point(' + pt.x + "," + pt.y + ")");
+    };
+
+  //  displayPoint(p);
+
+
+    p.show=displayPoint;
+
+
+    p.show(p);
+
+    p.show();
+
+
+
+
+
+
+
+
+
+</script>

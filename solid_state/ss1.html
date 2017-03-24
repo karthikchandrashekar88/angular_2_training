@@ -15,28 +15,6 @@
         }
     </style>
 
-    <script>
-        var numArr = [];
-
-        function addToList(){
-            var num = document.getElementById('number').value;
-            document.getElementById("numberList").innerHTML+=num+'<br>';
-            if(num!==NaN) numArr.push(parseFloat(num));
-        }
-
-        function sum(){
-            var sum = 0;
-            for(var i=0;i<numArr.length;i++){
-                sum = sum + numArr[i];
-            }
-            document.getElementById("console").innerHTML='sum is :'+sum;
-        }
-
-        function clearMemory(){
-            
-        }
-    </script>
-
 </head>
 
 <body>
@@ -46,13 +24,13 @@
             Number
             <input type='text' id='number' />
             <input type='button' value='Add To List' onclick="addToList()" />
-            <input type='button' value='Clear Display'  />
-            <input type='button' value='Reset Calculator'  />
+            <input type='button' value='Clear Display' onclick="clearDisplay()" />
+            <input type='button' value='Reset Calculator' onclick="resetCalculator()" />
 
             <br/>
             <input type='button' value='Sum'  onclick="sum()"/>
-            <input type='button' value='Average'  />
-            <input type='button' value='Find Min'  />
+            <input type='button' value='Average' onclick="avg()" />
+            <input type='button' value='Find Min' onclick="minVal()" />
 
         </div>
 
@@ -99,5 +77,52 @@
     </style>
 
 </head>
+    <script>
+        var numArr = [];
+
+        var addToList = function(){
+            var num = document.getElementById('number').value;
+            document.getElementById("numberList").innerHTML+='<li>'+num+'</li><br/>';
+            if(num!==NaN) numArr.push(parseFloat(num));
+        };
+
+        function sum(){
+            var sum = 0;
+            for(var i=0;i<numArr.length;i++){
+                sum = sum + numArr[i];
+            }
+            document.getElementById("console").innerHTML='sum is :'+sum;
+        }
+
+        function clearDisplay(){
+            document.getElementById("numberList").innerHTML='';
+            document.getElementById("console").innerHTML='';
+        }
+
+        function resetCalculator(){
+            numArr = [];
+        }
+
+        function avg(){
+            var sum = 0;
+            for(var i=0;i<numArr.length;i++){
+                sum = sum + numArr[i];
+            }
+            var avg = sum/(numArr.length);
+            document.getElementById("console").innerHTML = 'Avg is :'+avg;
+        }
+
+        function minVal(){
+            var min = numArr[0];
+            for(var i=1;i<numArr.length;i++){
+                //if(i==1) min = numArr[i-1];
+                if(numArr[i]<min) 
+                {
+                    min = numArr[i] ;
+                }
+            }
+            document.getElementById("console").innerHTML = 'Min is :'+min;
+        }
+    </script>
 
 </html>

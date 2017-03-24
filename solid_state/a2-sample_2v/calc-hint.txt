@@ -1,0 +1,36 @@
+
+var calc=new Calculator(); //only calculation no output printing
+
+var consoleWriter=new ...();
+
+var listWriter=new ...();
+
+var numberBox=new ...();
+
+
+var doAddToList=function(){
+
+	var value=numberBox.getNumber();
+
+	if(calc.addToList(value)){
+		listWriter.write(value);
+	}
+	else{
+		consoleWriter.write('invalid input');
+	}
+};
+
+var doSum=function(){
+	var result=calc.sum();
+	consoleWriter.write('sum is '+result);
+};
+
+
+
+
+
+
+
+
+
+

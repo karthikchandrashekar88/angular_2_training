@@ -1,0 +1,57 @@
+<h1>
+
+    Press F12 for output</h1>
+
+<script>
+
+    //constructor method
+    var Point = function (x, y) {
+      
+        this.x = x; //now p has field called x
+        this.y = y; //now p has y also
+
+        this.show = function () {
+            console.log(this.toString());
+        };
+
+        this.slope = function () {
+            return this.y / this.x;
+        };
+
+        this.distance = function (p2) {
+            var dx = this.x - p2.x;
+            var dy = this.y - p2.y;
+
+            return Math.sqrt(dx * dx + dy * dy);
+        };
+
+        this.toString = function () {
+            return "Point(" + this.x + "," + this.y + ")";
+        };
+
+      
+    };
+
+    // var pt=new Object(); //allocate memory
+    // pt.init=createPoint; //attach the function
+    // pt.init(3,4); //call the function
+
+
+
+    var pt=new Point(3,4);
+
+    var origin=new Point(0,0);
+
+    console.log('pt=' + pt);
+    console.log('slope=' + pt.slope());
+
+
+
+    var d = pt.distance(origin);
+
+    console.log('distance between ' + pt + " and " + origin + ' is ' + d);
+
+    var d2 = origin.distance(pt);
+
+    console.log('distance between ' + pt + " and " + origin + ' is ' + d);
+</script>
