@@ -1,6 +1,6 @@
  var app =( function () {
             var calc = new Calculator();
-            var listWriter = new domutils.Writer('numberList', 'li');
+            var listWriter = new domutils.Writer('numberList', 'tr');
             var consoleWriter = new domutils.Writer('console');
             var numberBox = new domutils.Input('number');
 
@@ -10,7 +10,7 @@
                 var number = numberBox.getNumber();
 
                 if (calc.addToList(number)) {
-                    listWriter.write(number);
+                    listWriter.write('<td align=\'center\'>'+number+'</td>');
                 } else {
                     consoleWriter.write('invalid input');
                 }
