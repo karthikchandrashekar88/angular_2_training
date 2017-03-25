@@ -1,0 +1,35 @@
+<h1>Press F12 for developer console</h1>
+
+<script>
+
+var Greeter=function(name){
+
+    var createMessage = function(prefix, name,suffix){
+
+        return prefix+' '+name+' '+suffix;
+
+    }
+
+    this.welcome=function(){
+        console.log('Hello '+name+' welcome to Google\'s our service...');
+    };
+
+    this.goodBye=function(){
+        console.log(createMessage('good bye',name,'thanks for using our service'));
+    };
+
+
+};
+
+var greeter=new Greeter('Javascript');
+
+greeter.welcome();
+greeter.goodBye();
+
+
+
+ 
+
+
+
+</script>

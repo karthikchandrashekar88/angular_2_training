@@ -1,0 +1,38 @@
+<script src='books.js'></script>
+
+<script>
+    
+    var multiplicationTable=function * (number,times=10){
+
+        for(let i=1;i<=times;i++){
+            yield number*i;
+        }
+
+    };
+
+
+    var table19 = multiplicationTable(19);
+    
+    var v=table19.next();
+
+    while(!v.done){
+        console.log(v.value);
+        v=table19.next();
+    };
+
+    
+    console.log('table of 23');
+    
+    for(let number of multiplicationTable(23)){
+        console.log(number);
+    }
+
+
+    
+    
+    
+
+
+</script>
+
+<h1>Output on Console</h1>

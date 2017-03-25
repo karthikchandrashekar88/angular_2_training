@@ -1,0 +1,88 @@
+<script src='books.js'></script>
+
+<script>
+    var SearchEngine = function (list) {
+
+
+        var search = function (matchCondition, param) {
+            var results = [];
+
+            for (var item of list) {
+
+                if (matchCondition(item, param)) {
+                    results.push(item);
+                }
+
+            }
+
+
+            return results;
+        };
+
+        this.search = search;
+
+    }
+
+
+
+    var client = (function () {
+
+        var printSearchResult=function(msg,condition,param){
+            console.log("\n\n"+msg);
+
+            var result=bookSearchEngine.search(condition,param);
+
+            for(var book of result){
+                console.log(`${book.title}\t${book.author}\t${book.price}`);
+            }
+
+            console.log('\n-------------\n\n');
+
+        }
+
+
+        //client
+        var bookSearchEngine = new SearchEngine(books);
+
+        var matchAuthorName = function (book, authorName) {
+            return book.author.toLowerCase() === authorName.toLowerCase();
+        };
+
+        printSearchResult('books by Amish', matchAuthorName,'amish');
+
+
+       var matchPartialTitle=function(book,title){
+
+           return book.title.toLowerCase().indexOf(title.toLowerCase())>=0;
+       };
+
+       printSearchResult('books on Potter', matchPartialTitle, 'potter');
+
+
+       printSearchResult('Part 2 books', matchPartialTitle, 'part 2');
+
+
+       var priceRange=function(book,range){
+            return book.price>=range.min && book.price<=range.max;
+       };
+
+
+       printSearchResult('books in range 400-500', priceRange, {min:400,max:500});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    })();
+</script>
+
+<h1>Output on Console</h1>

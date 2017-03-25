@@ -1,0 +1,37 @@
+<h1>Press F12 for developer console</h1>
+
+<script>
+    var values = [2, 3, 9, 7, 2];
+
+    console.log('for-in on array');
+
+    for (let value in values)
+        console.log(value);
+
+    var person = {
+        name: 'Vivek Dutta Mishra',
+        email: 'vivek@conceptarchitect.in',
+        phone: '9036084835'
+    };
+
+    console.log('for-in on an object');
+
+    for (let value in person)
+        console.log(value);
+
+
+    //ES6 for-of loop
+    console.log('es6 for-of loop');
+
+    for (let value of values) {
+        console.log(value);
+
+    }
+
+
+    console.log('for-of on object');
+
+    for (let value of person)
+        console.log(value);
+        
+</script>

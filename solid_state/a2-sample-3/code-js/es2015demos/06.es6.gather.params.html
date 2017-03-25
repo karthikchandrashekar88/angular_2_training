@@ -1,0 +1,30 @@
+<h1>Press F12 for developer console</h1>
+
+<script>
+
+var values=[2,9,8,1,4];
+
+//ES 5 way to get values from an array
+var x=values[0];
+var y=values[1];
+
+console.log('x',x);
+console.log('y',y);
+
+var [a,b]=values;
+
+console.log('a',a);
+console.log('b',b);
+
+
+var [i,,j]=values; //i=values[0] j=values[2] . values[1] skipped.
+
+console.log('i',i);
+
+console.log('j',j );
+
+ 
+
+
+
+</script>

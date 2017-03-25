@@ -1,0 +1,29 @@
+<h1>Press F12 for developer console</h1>
+
+<script>
+
+var avg = function(count){
+
+    var sum=0;
+    if(arguments.length< count)
+        return NaN;
+
+    for(var i=1; i<count;i++)
+        sum+=arguments[i];
+
+
+    return sum/i;
+}
+
+console.log('avg(2,5,8)',avg(2,5,8));
+console.log('avg(3,8,7,9)',avg(3,8,7,9));
+
+console.log('avg(2,8,12,2,9)',avg(2,8,12,2,9));
+
+console.log('avg(2,8)',avg(2,8));
+
+
+
+
+
+</script>

@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+
+    <style>
+        fieldset {
+            width: 60%;
+            margin: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <fieldset>
+        <legend>Toolbar</legend>
+        <div>
+            Number
+            <input type='text' id='number' />
+            <input type='button' value='Add To List' onclick='addToList();' />
+            <input type='button' value='Clear Display' onclick='clearDisplay();' />
+            <input type='button' value='Reset Calculator' onclick='reset();' />
+
+            <br/>
+            <input type='button' value='Sum' onclick='sum();' />
+            <input type='button' value='Average' onclick='avg()' />
+            <input type='button' value='Find Min' onclick='findMin();' />
+
+        </div>
+
+    </fieldset>
+
+    <hr/>
+
+    <fieldset>
+        <legend>Console</legend>
+
+        <div id='console'>
+
+        </div>
+
+    </fieldset>
+
+    <fieldset>
+        <legend>Number List</legend>
+
+        <ul id='numberList'>
+
+        </ul>
+
+        <input type='button' value='refresh list' onclick='refresh();' />
+    </fieldset>
+
+    <script>
+
+        var Calculator = function( ){
+            //intentionally private
+            var numbers=[];
+
+            this.addToList=function(number){
+                if(isNaN(number))
+                    return false;
+
+                numbers.push(number);
+                return true;
+            };
+
+            this.sum=function(){
+                var result=0;
+                for(var i=0;i<numbers.length;i++)
+                    result+=numbers[i];
+
+                return result;
+            };
+
+            this.avg=function(){
+                return this.sum()/numbers.length;
+            };
+
+            this.reset=function(){
+                numbers=[];
+            };
+
+
+        };
+
+
+    </script>
+
+    <script>
+        var Writer = function( ){
+          var list=document.getElementById('numberList');  
+          var con=document.getElementById('console');
+
+          this.writeToConsole=function(msg){
+             con.innerHTML+="<p>"+msg+"</p>";
+          };
+
+          this.writeToList=function(msg){
+              list.innerHTML+="<li>"+msg+"</li>";
+          };
+
+          this.clear=function(){
+              list.innerHTML='';
+              con.innerHTML='';
+          };
+
+        };
+    
+    </script>
+
+    <script>
+        var Input = function( ){
+            var box=document.getElementById('number');
+            this.getNumber=function(){
+                return parseFloat(box.value);
+            };
+
+            this.clear=function(){
+                box.value='';
+            };
+
+        }
+
+    </script>
+
+
+    <script>
+        
+        var calc=new Calculator();
+        var writer=new Writer();
+        var numberBox=new Input();
+        
+        var addToList = function () {
+
+            var number = numberBox.getNumber();
+
+            if (calc.addToList(number)) {
+                writer.writeToList(number);
+            } else {
+                writer.writeToConsole('invalid input');
+            }
+
+        };
+
+        var sum = function () {
+            var result=calc.sum();
+            writer.writeToConsole('sum is '+result);
+        };
+
+        var avg = function () {
+            var result = calc.avg();
+            writer.writeToConsole('avg is '+result);
+        };
+
+        var findMin = function () {
+            writer.writeToConsole('not yet implemented');
+        };
+
+        var clear = function () {
+            writer.clear();
+            numberBox.clear();
+        };
+
+        var clearDisplay = clear;
+
+        var reset = function () {
+            calc.reset();
+            clear();
+        };
+
+        var refresh = function () {
+            writer.writeToConsole('no yet implemented');
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<h1>Press F12 for developer console</h1>
+
+<script>
+
+var Memory=function(value){
+
+    var value=value;
+    if(!value) value=0;
+
+    var update = function(delta){
+        value+=delta;
+        return value;
+    };
+
+    this.increment=function(delta){
+        if(!delta) delta=1;
+        delta=Math.abs(delta);
+        return update(delta);
+    };
+
+    this.decrement=function(delta){
+        if(!delta) delta=1;
+        
+        delta=Math.abs(delta);
+
+        return update(-delta);
+    };
+
+    this.reset=function(newValue){
+        if(!newValue) newValue=0;
+        value=newValue;
+        return value;
+    };
+
+    this.get=function(){
+        return value;
+    };
+
+};
+
+
+
+//var increment=new Memory().increment;
+//var decr=new Memory().decrement;
+
+var mem=new Memory();
+
+var increment=mem.increment;
+var decr=mem.decrement;
+
+
+
+
+console.log('mem.increment()', increment());
+console.log('mem.increment(5)',increment(5) );
+
+console.log('mem.increment()',increment());
+
+
+
+console.log('mem.decrement(2)',decr(2));
+console.log('mem.decrement()',decr());
+
+
+ 
+
+
+
+</script>

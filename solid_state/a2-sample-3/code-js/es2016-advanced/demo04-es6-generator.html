@@ -1,0 +1,43 @@
+<script src='books.js'></script>
+
+<script>
+    
+
+     function* f1( ){
+
+        yield 1;
+        yield 2;
+        yield 3;
+    };
+
+    //function returns a generator (iterator)
+    var gen=f1();
+
+    console.log('gen.next()',gen.next());
+    
+    console.log('gen.next()',gen.next());
+
+    console.log('gen.next()',gen.next());
+    
+    console.log('gen.next()',gen.next());
+    
+
+    var it=f1(); //get new generator
+
+    var x=it.next();
+
+    while(x.done===false){
+        console.log(x.value);
+        x=it.next();
+    }
+
+    
+    
+    
+    
+    
+
+
+</script>
+
+<h1>Output on Console</h1>

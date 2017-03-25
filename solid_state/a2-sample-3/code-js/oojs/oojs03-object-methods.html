@@ -1,0 +1,40 @@
+<h1>
+
+    Press F12 for output</h1>
+
+<script>
+    
+    var p = new Object(); //i have an object... no fields here!!!
+
+    p.x = 3; //now p has field called x
+    p.y = 4; //now p has y also
+
+
+    console.log(p);
+
+    function displayPoint() {
+        console.log('Point(' + this.x + "," + this.y + ")");
+    };
+
+  //  displayPoint(p);
+
+
+    p.show=displayPoint;
+
+
+    p.show(p);
+
+    p.show();
+
+    var x=1,y=1;
+
+
+    displayPoint();
+
+
+
+
+
+
+
+</script>

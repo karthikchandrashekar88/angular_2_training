@@ -28,7 +28,8 @@
             };
 
             var findMin = function () {
-                consoleWriter.write('not yet implemented');
+                var result = calc.min();
+                consoleWriter.write('min is :'+result);
             };
 
             var clear = function () {

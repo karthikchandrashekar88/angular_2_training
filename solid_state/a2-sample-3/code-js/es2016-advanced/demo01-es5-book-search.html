@@ -1,0 +1,35 @@
+<html> 
+    <head>
+        <title>Javascript Basic Demos</title>
+
+    
+    </head>
+
+    <body>
+        <h1>Book List</h1>
+        <input type='search' id='search' />
+        <input type='button' value='search authors' onclick='app.searchByAuthor();' />
+        <table width="80%" border="1px" >
+            <thead>
+                <tr>
+                    <th>
+                        Title
+                    </th>
+                    <th>Author</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+
+            <tbody id='books'>
+
+            </tbody>
+        </table>
+    </body>
+
+
+    <script src='../calc-app/dom.js' ></script>
+
+    
+    <script src='books-app.js'></script>
+
+</html>

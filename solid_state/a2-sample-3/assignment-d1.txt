@@ -1,0 +1,11 @@
+assignment-d1
+---------------
+
+
+1. implement refresh function
+	* not calculator defines number array as private (DONT change that)
+
+2. implement min function
+
+
+3. change numberlist from ul to a table

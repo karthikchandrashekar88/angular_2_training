@@ -1,0 +1,67 @@
+<h1>Press F12 for developer console</h1>
+
+<script>
+
+//ES6 REST Params
+var avg = function(...values){
+
+    var sum=0;
+
+    for(var i=0; i<values.length;i++)
+        sum+=values[i];
+
+    return sum/values.length;
+}
+
+console.log('avg(2,8)',avg(2,8));
+console.log('avg(8,2,9,1)',avg(8,2,9,1));
+console.log('avg(8,3,4,2',avg(8,3,4,2));
+
+
+var values=[2,3,9,1];
+
+
+//oops we passed a single value (that is array) 
+//ES6 will create an array with a single element that is an array
+
+console.log('avg(values)',avg(values));
+
+
+/*
+    ...values splits an array into CSV
+*/
+
+console.log('avg(...values)',avg(...values));
+
+
+console.log('original values',values);
+
+console.log('adding 100 to the end of the array...');
+
+values.push(100);
+
+console.log('after pushing 100 :',values);
+
+
+
+values=[0,...values];
+
+console.log('after inserting 0 at the begining',values);
+
+var values2=[8,18,188];
+
+
+var values3=[...values,...values2];
+
+
+
+console.log('values3',values3);
+
+
+
+
+
+
+
+
+</script>

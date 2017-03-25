@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <title>Javascript Basic Demos</title>
+
+
+
+</head>
+
+
+<h1>Press F12 for output</h1>
+
+<script>
+
+   function average(numbers){
+
+       // console.log('avg called with '+arguments.length+" parameters");
+       var sum=0;
+       for(var i=0;i<arguments.length;i++){
+           sum+=arguments[i];
+       }
+        return sum/arguments.length;
+
+   }
+
+
+   console.log('typeof average',typeof average);
+   
+   var avg=average;
+
+   
+   console.log('avg(2,3)',avg(2,3));
+   console.log('avg(8,10)',avg(8,10));
+   
+   console.log('avg(8,10,12,17,20,30)',avg(8,10,12,17,20,30));
+   
+   console.log('avg(2)',avg(2));
+
+   console.log('avg()',avg());
+
+
+
+
+   
+
+
+
+ 
+
+
+
+
+
+</script>
